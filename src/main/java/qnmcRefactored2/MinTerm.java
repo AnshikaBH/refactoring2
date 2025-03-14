@@ -31,7 +31,6 @@ public class MinTerm {
         }
     }
 
-    // converted to string
     public String toString() {
         StringBuilder builder = new StringBuilder(count);
         for (int i = 0; i < count; i++) {
@@ -50,7 +49,6 @@ public class MinTerm {
         return builder.toString();
     }
 
-    // comparing minterm
     public boolean isSame(MinTerm a) throws ExceptionQuine {
         if (count != a.count)
             throw new ExceptionQuine("MinTerm length mismatch in isSame()");
@@ -73,7 +71,6 @@ public class MinTerm {
         return resCount;
     }
 
-    // combining two minterms
     public static MinTerm combine(MinTerm a, MinTerm b) throws ExceptionQuine {
         if (a.count != b.count)
             throw new ExceptionQuine("Minterms must have the same length to combine.");

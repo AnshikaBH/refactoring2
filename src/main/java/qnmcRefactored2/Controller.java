@@ -13,7 +13,6 @@ public class Controller {
     }
 
     private void initialize() {
-        // Set action listeners and handle user interactions here
         view.setNextButtonActionListener(e -> handleNextButtonClick());
 
         view.setCalculateButtonActionListener(e -> handleCalculateButtonClick());
