@@ -1,13 +1,11 @@
 package qnmcRefactored2;
 
 public class Quine {
-    // macro
-    protected static final int MAX_TERMS = 0xff;// 0xff=255
-    // attribute
+    protected static final int MAX_TERMS = 255;
+
     public MinTerm[] terms = new MinTerm[MAX_TERMS];
     public int count = 0;
 
-    // adding minterms
     public void addTerm(String str) throws ExceptionQuine {
         if (count == MAX_TERMS)
             throw new ExceptionQuine("Cannot add more terms, maximum limit reached");
@@ -34,8 +32,7 @@ public class Quine {
 
     // verification of the function
     public void simplify() throws ExceptionQuine {
-        while (reduce() > 0)
-            ;
+        while (reduce() > 0) ;
     }
 
     // reduction of the minterm
@@ -64,15 +61,12 @@ public class Quine {
                 reducedTerms[totalReduced++] = terms[i];
             }
         }
-        // initialize
         count = 0;
         // storing in a list(except the double term)
         for (int i = 0; i < totalReduced; i++) {
             if (!hasTerm(reducedTerms[i]))
                 terms[count++] = reducedTerms[i];
         }
-        // number of reduction to produce
-        // System.out.println(reducedCount);
         return reducedCount;
     }
 }
