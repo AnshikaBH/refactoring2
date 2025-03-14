@@ -32,7 +32,6 @@ public class MinTerm {
     }
 
     // converted to string
-
     public String toString() {
         StringBuilder builder = new StringBuilder(count);
         for (int i = 0; i < count; i++) {
@@ -52,7 +51,6 @@ public class MinTerm {
     }
 
     // comparing minterm
-
     public boolean isSame(MinTerm a) throws ExceptionQuine {
         if (count != a.count)
             throw new ExceptionQuine("MinTerm length mismatch in isSame()");

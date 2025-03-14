@@ -15,6 +15,6 @@ public class ExceptionQuine extends Exception {
     }
 
     public ExceptionQuine(Throwable cause) {
-        super(cause);
+        super(null, cause);
     }
 }

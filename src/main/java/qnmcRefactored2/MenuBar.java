@@ -14,7 +14,7 @@ public class MenuBar extends JMenuBar {
 
     public static int bits;
 
-    private String objective = """
+    String objective = """
             The Quine McCluskey algorithm (or the method of prime implicants) \
             
             is a method used for minimization of boolean functions which was developed by W.V. \
