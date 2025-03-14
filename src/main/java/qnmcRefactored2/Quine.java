@@ -10,17 +10,17 @@ public class Quine {
     // adding minterms
     public void addTerm(String str) throws ExceptionQuine {
         if (count == MAX_TERMS)
-            throw new ExceptionQuine("Quine::addTerm()");
+            throw new ExceptionQuine("Cannot add more terms, maximum limit reached");
         terms[count++] = new MinTerm(str);
     }
 
     // converted to string
     public String toString() {
-        StringBuilder buf = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            buf.append(terms[i]).append("\n");
+            builder.append(terms[i]).append("\n");
         }
-        return buf.toString();
+        return builder.toString();
     }
 
     // see whether the element already exists

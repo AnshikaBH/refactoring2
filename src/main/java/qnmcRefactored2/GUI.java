@@ -1,6 +1,7 @@
 package qnmcRefactored2;
 
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serial;
@@ -31,7 +32,6 @@ public class GUI extends JFrame {
     static public int k = 0;
     static public Set<String> set;
     public String temp;
-    private GetMintermList item = new GetMintermList();
 
     // Constructor
     public GUI() {
@@ -82,13 +82,7 @@ public class GUI extends JFrame {
 
     // Create and return the KeyListener for input validation
     private KeyListener createKeyListener() {
-        return new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent arg0) {}
-
-            @Override
-            public void keyPressed(KeyEvent arg0) {}
-
+        return new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent arg0) {
                 validateInput();
@@ -143,7 +137,7 @@ public class GUI extends JFrame {
         nextButton.setBounds(140, 140, 70, 30);
         nextButton.addActionListener(e -> {
             minIn.setText("");
-            item.setMinList(temp);
+            MinTermRepository.getInstance().setMinList(temp);
         });
         panel.add(nextButton);
     }
@@ -165,7 +159,7 @@ public class GUI extends JFrame {
     // Perform calculation and display result
     private void calculateSimplification() {
         Quine quine = new Quine();
-        set = GetMintermList.getMin();
+        set = MinTermRepository.getMin(); // direct access via singleton
         try {
             for (String str : set) {
                 if (MenuBar.bits == 3) {
